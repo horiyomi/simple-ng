@@ -1,0 +1,33 @@
+<h1>User Profile</h1>
+<div>
+  <h4>User: {{name}}</h4>
+  <h4>Email: {{email}}</h4>
+  <h4>Age: {{age}}</h4>  
+  <h4>Address: {{address.street}}, {{address.city}},{{address.state}}</h4>
+</div>
+
+<h3>Hobbies</h3>
+<form (submit)="addHobby(hobby.value)">
+  <div>
+    <label for="label"> New Label</label>
+    <input type="text" #hobby>
+  </div>
+</form>
+<ul>
+    <li *ngFor="let hobby of hobbies">{{hobby}} <button (click)="removeHobby(hobby)">X</button></li>
+</ul>
+
+<form>
+  <div>
+    <label for="name">Name:</label>
+    <input type="text" [(ngModel)]="name" name="name">
+  </div>
+  <div>
+    <label for="email">Email:</label>
+    <input type="email" [(ngModel)]="email" name="email">
+  </div>
+  <div>
+    <label for="age">Age:</label>
+    <input type="number" [(ngModel)]="age" name="age">
+  </div>
+</form>
